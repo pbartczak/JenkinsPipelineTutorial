@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters {
+        booleanParam(name: 'executeTests', defaultValue: true, description: "do a test?")
+    }
     environment {
         NEW_VERSION = "1.3.0"
         SERVER_CREDENTIALS = credentials('server-credentials')
@@ -16,7 +19,7 @@ pipeline {
         stage("test") {
             when {
                 expression {
-                    return GIT_BRANCH == "origin/main";
+                    return GIT_BRANCH == "origin/main" && params.executeTests;
                 }
             }
             steps {
