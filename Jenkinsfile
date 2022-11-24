@@ -9,8 +9,7 @@ pipeline {
             steps {
                 echo "building the application...."
                 echo "building version ${NEW_VERSION}"
-                echo "credentials:  ${SERVER_CREDENTIALS}"
-                sh "${SERVER_CREDENTIALS}"
+                echo "credentials:  ${SERVER_CREDENTIALS_PSW}"
             }
         }
         stage("test") {
