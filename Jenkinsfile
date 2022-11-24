@@ -10,6 +10,7 @@ pipeline {
                 echo "building the application...."
                 echo "building version ${NEW_VERSION}"
                 echo "credentials:  $SERVER_CREDENTIALS_PSW"
+                echo env.BRANCH_NAME
             }
         }
         stage("test") {
