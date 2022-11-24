@@ -10,12 +10,13 @@ pipeline {
                 echo "building the application...."
                 echo "building version ${NEW_VERSION}"
                 echo "credentials:  $SERVER_CREDENTIALS_PSW"
+                echo "${GIT_BRANCH}"
             }
         }
         stage("test") {
             when {
                 expression {
-                    return env.GIT_BRANCH == 'main' || env.BRANCH_NAME == 'test'
+                    return GIT_BRANCH == 'main';
                 }
             }
             steps {
