@@ -19,7 +19,7 @@ pipeline {
         stage("test") {
             when {
                 expression {
-                    return GIT_BRANCH == "origin/main" || params.executeTests;
+                    return params.executeTests;
                 }
             }
             steps {
