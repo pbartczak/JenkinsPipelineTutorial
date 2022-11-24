@@ -16,7 +16,7 @@ pipeline {
         stage("test") {
             when {
                 expression {
-                    return GIT_BRANCH == 'main';
+                    return GIT_BRANCH == "origin/main";
                 }
             }
             steps {
