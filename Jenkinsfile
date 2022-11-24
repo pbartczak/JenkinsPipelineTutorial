@@ -28,7 +28,7 @@ pipeline {
                 withCredentials([
                     usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PASS)
                 ]) {
-                    echo "some script ${USER} ${PASS}"
+                    sh "echo some script ${USER} ${PASS}"
                 }
             }
         }
