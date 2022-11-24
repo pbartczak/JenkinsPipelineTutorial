@@ -15,7 +15,7 @@ pipeline {
         stage("test") {
             when {
                 expression {
-                    return env.BRANCH == 'main' || env.BRANCH_NAME == 'test'
+                    return env.GIT_BRANCH == 'main' || env.BRANCH_NAME == 'test'
                 }
             }
             steps {
